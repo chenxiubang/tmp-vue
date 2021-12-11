@@ -40,6 +40,15 @@
                     decr: function() {
                         this.num--;
                     }
+                },
+                beforeCreate:function() {
+                    console.log("before create ...");
+                },
+                created:function() {
+                    console.log("create...");
+                },
+                mounted:function() {
+                    console.log("mounted...");
                 }
             })
         </script>
