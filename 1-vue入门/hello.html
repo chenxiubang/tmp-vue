@@ -7,6 +7,14 @@
         
         <div id="container">
             {{chenxiubang}}
+
+            <ol>
+                <li v-for="item in mylist">{{item}}</li>
+            </ol>
+
+            现在的数字是{{num}}
+            <button v-on:click="incr">增加</button>
+            <button @click="decr">减少</button>
         </div>
 
         <script src="../js/vue.js"></script>
@@ -16,10 +24,21 @@
             const app = new Vue({
                 el: '#container',
                 data:{
-                    chenxiubang:"陈修榜"
+                    chenxiubang:"陈修榜",
+                    mylist:[
+                        "apple",
+                        "orange",
+                        "banana",
+                    ],
+                    num: 0
                 },
-                method:{
-
+                methods:{
+                    incr: function() {
+                        this.num++;
+                    },
+                    decr: function() {
+                        this.num--;
+                    }
                 }
             })
         </script>
