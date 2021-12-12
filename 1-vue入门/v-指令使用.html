@@ -11,10 +11,19 @@
 
       <!-- 待会会以html显示文本-->
       <p v-html="htmlText"></p>
+      
+      <!-- -和masterache语法相同-->
+      <p v-text="hello">}</p>
+
+      <!-- 如果又写v-text 又写{{}}，则v-text覆盖双大括号的东西，不够灵活-->
+      <p v-text="hello">{{htmlText}}</p>
+
+
+      <!-- v-pre就是原封不动解析包含的文本-->
+      <p v-pre>{{htmlText}}</p>
 
   </div>
 </body>
 <script src="../js/vue.js"></script>
 <script src="../js/v-指令使用.js"></script>
-
 </html>
