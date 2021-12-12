@@ -1,8 +1,18 @@
 <html>
   <meta charset="utf-8">
   <title>v-指令的使用</title>
-<body>
-  <div id="container">
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+  <body>
+
+  <!-- 
+    v-cloak防止闪烁 在vue解析前会存在v-cloak
+                    vue解析后就会消失
+  -->
+  <div id="container" v-cloak>
       <p>{{hello}}</p>
       
       <!-- v-once只渲染一次 -->
