@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>v-bind的指定使用</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id = "container" v-cloak>
+      <p>{{msg}}</p>
+      <img src="https://i0.hdslb.com/bfs/sycp/creative_img/202112/26cb592c90fca2ef8ff44e4ca21b7ac5.jpeg">
+      <!-- 使用v-bind声明式绑定v示例里面的图片链接-->
+      <img v-bind:src="mySrc">
+      
+
+      <a href="https://www.baidu.com">点击我</a>
+      <a v-bind:href="myUrl">点击我</a>
+      <!-- 语法糖简写 -->
+      <a :href="myUrl">点击我</a>
+    </div>
+  </body>
+  <script src="../js/vue.js"></script>
+  <script>
+    setTimeout(() => {
+      console.log("ok");
+      const app = new Vue({
+      el:document.getElementById("container"),
+      data:{
+        msg:"chenxiubang",
+        mySrc:"https://i0.hdslb.com/bfs/sycp/creative_img/202112/26cb592c90fca2ef8ff44e4ca21b7ac5.jpeg",
+        myUrl:"https://www.baidu.com"
+      },
+      methods:{
+
+      }
+    })
+    }, 1000);
+
+  </script>
+</html>

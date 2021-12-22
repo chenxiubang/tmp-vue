@@ -1,0 +1,79 @@
+<html>
+  <meta charset="utf-8">
+  <style>
+    .chenxiubang {
+      color: red;
+    }
+    .hhh{
+      color:aqua
+    }
+
+    .red {
+      color: red;
+    }
+    
+    .yellow {
+      color: yellow;
+    }
+
+    .blue {
+      color: blue;
+    }
+  </style>
+  <body>
+    <div id="container"> 
+        <p class="chenxiubang">chenxiubang</p>
+        <p v-bind:class="myColor">chenxiubang</p>
+        <p :class="myColor">chenxiubang</p>
+
+        <!-- :class中放一个对象-->
+        <p :class="{chenxiubang:true}">chenxiubang</p>
+        <p :class="{chenxiubang:false}">chenxiubang</p>
+        <p :class="{hhh:true}">chenxiubang</p>
+
+        <!-- 实现一个按钮点击，颜色切换红黄蓝-->
+        <p :class="{red:isRed,yellow:isYellow,blue:isBlue}">我会变颜色</p>
+        <button @click="changeColor">点击我变颜色</button>        
+
+    </div>
+  </body>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#container',
+      data:{
+        myColor:'chenxiubang',
+        isRed:true,
+        isYellow:false,
+        isBlue:false
+      },
+      methods:{
+        changeColor: function() {
+          console.log("我要开始变颜色");
+          if(this.isRed==true) {
+            console.log("hongse")
+            app.isRed = false;
+            app.isYellow = true;
+            app.isBlue = false;
+            console.log(this.isRed);
+            return;
+          }
+          
+          if(this.isYellow==true) {
+            app.isRed = false;
+            app.isYellow = false;
+            app.isBlue = true;
+            return;
+          }
+          
+          if(this.isBlue==true) {
+            app.isRed = true;
+            app.isYellow = false;
+            app.isBlue = false;
+            return;
+          }
+        }
+      }
+    })
+  </script>
+  </html>
